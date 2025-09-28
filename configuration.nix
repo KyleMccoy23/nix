@@ -1,17 +1,15 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
-      ./pkgs.nix
-      ./fish.nix
+      ./packages/pkgs.nix
+      ./packages/fish.nix
       ./boot.nix
       ./services.nix
+      ./graphics.nix
     ];
 
  users.users.admin = {
@@ -31,8 +29,6 @@
 
   }];
 
-  programs.zoxide.enable = true;
-
   security.rtkit.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -43,16 +39,12 @@
   # Set your time zone.
   time.timeZone = "America/Toronto";
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  system.stateVersion = "25.05"; # Did you read the comment?
-
+  system.stateVersion = "25.05";
 
 }

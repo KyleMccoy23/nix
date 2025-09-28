@@ -1,5 +1,7 @@
 { pkgs, ... }:
+
 {
+
   boot = {
     loader = {
       # Bootloader.
@@ -25,11 +27,13 @@
     kernelParams = [
       "quiet"
       "splash"
-      "boot.shell_on_fail" # if boot fails, boot to shell
+      "nvidia-drm.modeset=1"
+      "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
-      "random.trust_cpu=on"  # Trusts CPU randomness
+      "random.trust_cpu=on"
     ];
+
 
     # Use latest kernel.
     kernelPackages = pkgs.linuxPackages_latest;

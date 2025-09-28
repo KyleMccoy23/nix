@@ -9,6 +9,15 @@
 
         git curl wget
 
+         # codecs
+        ffmpeg-full
+        gst_all_1.gst-plugins-good
+        gst_all_1.gst-plugins-bad
+        gst_all_1.gst-plugins-ugly
+        gst_all_1.gst-libav
+
+        nvtopPackages.full
+
         vscodium 
 
         legcord signal-desktop
@@ -38,6 +47,7 @@
         bitwarden-desktop
 
         virt-manager
+        nvidia-container-toolkit
 
         grub2
 
@@ -49,4 +59,7 @@
         nixpkgs-fmt
         cachix
     ];
+
+      # Install firefox.
+    programs.firefox.enable = true;
 }

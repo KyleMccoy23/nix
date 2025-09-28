@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  security.rtkit.enable = true;
+
   services = {
     pulseaudio.enable = false;
     #Enable sound with pipewire.
@@ -18,6 +18,8 @@
     # Enable the GNOME Desktop Environment.
     xserver.displayManager.gdm.enable = true;
     xserver.desktopManager.gnome.enable = true;
+
+    xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
     # Configure keymap in X11
     xserver.xkb = {
