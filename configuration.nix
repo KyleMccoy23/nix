@@ -12,7 +12,7 @@
       ./graphics.nix
     ];
 
- users.users.admin = {
+  users.users.admin = {
     isNormalUser = true;
     description = "admin";
     extraGroups = [ "networkmanager" "wheel" "audio" "docker" "libvirtd" ];
@@ -23,18 +23,11 @@
   security.sudo.enable = false;
   security.doas.extraRules = [{
     groups = [ "wheel" ];
-
     keepEnv = true;
     persist = true;
-
   }];
 
   security.rtkit.enable = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Toronto";

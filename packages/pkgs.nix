@@ -9,7 +9,7 @@
 
         git curl wget
 
-         # codecs
+            # codecs
         ffmpeg-full
         gst_all_1.gst-plugins-good
         gst_all_1.gst-plugins-bad
@@ -60,6 +60,22 @@
         cachix
     ];
 
-      # Install firefox.
+        # Install firefox.
     programs.firefox.enable = true;
+
+    fonts.fontDir.enable = true;
+    fonts = {
+        enableDefaultPackages = true;
+        packages = with pkgs; [
+            nerd-fonts.jetbrains-mono
+            nerd-fonts.hack
+        
+        ];
+        fontconfig.enable = true;
+    };
+
+    programs.kdeconnect = {
+        enable = true;
+        package = pkgs.valent;
+    };
 }
